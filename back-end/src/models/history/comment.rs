@@ -1,4 +1,4 @@
-use crate::{schema::comment_history, enums::operation::NullableOperation};
+use crate::{schema::comment_history, structs::operation::NullableOperation};
 use diesel::prelude::*;
 
 #[derive(Queryable, Selectable)]

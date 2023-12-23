@@ -30,6 +30,16 @@ diesel::table! {
 }
 
 diesel::table! {
+    service (id) {
+        id -> Nullable<Integer>,
+        name -> Text,
+        description -> Text,
+        price -> Integer,
+        base_time -> Integer,
+    }
+}
+
+diesel::table! {
     user (id) {
         id -> Nullable<Integer>,
         name -> Text,
@@ -64,6 +74,7 @@ diesel::allow_tables_to_appear_in_same_query!(
     comment,
     comment_history,
     operation,
+    service,
     user,
     user_history,
 );
