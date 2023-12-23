@@ -1,6 +1,15 @@
 // @generated automatically by Diesel CLI.
 
 diesel::table! {
+    comment (id) {
+        id -> Nullable<Integer>,
+        user_id -> Integer,
+        details -> Text,
+        timestamp -> Timestamp,
+    }
+}
+
+diesel::table! {
     operation (id) {
         id -> Nullable<Integer>,
         name -> Text,
@@ -34,9 +43,11 @@ diesel::table! {
     }
 }
 
+diesel::joinable!(comment -> user (user_id));
 diesel::joinable!(user_history -> operation (operation));
 
 diesel::allow_tables_to_appear_in_same_query!(
+    comment,
     operation,
     user,
     user_history,
