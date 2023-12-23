@@ -9,7 +9,7 @@ diesel::table! {
         email -> Text,
         password -> Text,
         salt -> Text,
-        created_at -> Text,
-        last_login -> Text,
+        created_at -> Integer,
+        last_login -> Integer,
     }
 }
