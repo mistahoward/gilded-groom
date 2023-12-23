@@ -1,5 +1,6 @@
 pub mod schema;
 pub mod models;
+pub mod enums;
 
 #[macro_use] extern crate rocket;
 
