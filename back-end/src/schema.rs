@@ -22,6 +22,14 @@ diesel::table! {
 }
 
 diesel::table! {
+    discovery_method (id) {
+        id -> Nullable<Integer>,
+        name -> Text,
+        description -> Nullable<Text>,
+    }
+}
+
+diesel::table! {
     operation (id) {
         id -> Nullable<Integer>,
         name -> Text,
@@ -87,6 +95,7 @@ diesel::joinable!(user_history -> operation (operation));
 diesel::allow_tables_to_appear_in_same_query!(
     comment,
     comment_history,
+    discovery_method,
     operation,
     service,
     service_history,
