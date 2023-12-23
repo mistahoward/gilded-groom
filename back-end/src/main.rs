@@ -1,6 +1,7 @@
 pub mod schema;
 pub mod models;
 pub mod structs;
+pub mod routes;
 
 #[macro_use] extern crate rocket;
 
@@ -12,4 +13,5 @@ fn index() -> &'static str {
 #[launch]
 fn rocket() -> _ {
 	rocket::build().mount("/", routes![index])
+	.mount("/auth", routes![routes::auth::token_test])
 }

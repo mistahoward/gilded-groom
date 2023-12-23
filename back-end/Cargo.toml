@@ -6,7 +6,7 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-rocket = "0.5.0"
+rocket = { version = "0.5.0", features = ["json"] }
 libsqlite3-sys = { version = "^0", features = ["bundled"] }
 diesel = { version = "2.1.4", features = ["sqlite", "chrono"] }
 dotenvy = "0.15"
