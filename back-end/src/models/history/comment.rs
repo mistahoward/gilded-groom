@@ -2,7 +2,7 @@ use crate::{schema::comment_history, enums::operation::NullableOperation};
 use diesel::prelude::*;
 
 #[derive(Queryable, Selectable)]
-#[diesel(belongs_to(User))]
+#[diesel(belongs_to(Comment))]
 #[diesel(table_name = comment_history)]
 #[diesel(check_for_backend(diesel::sqlite::Sqlite))]
 pub struct CommentHistory {
