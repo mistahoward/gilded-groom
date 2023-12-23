@@ -8,5 +8,6 @@ pub struct Service {
 	pub id: Option<i32>,
 	pub name: String,
 	pub description: String,
-	pub price: f32
+	pub price: f32,
+	pub active: bool
 }

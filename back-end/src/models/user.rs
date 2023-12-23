@@ -13,4 +13,5 @@ pub struct User {
 	pub salt: String,
 	pub created_at: i32,
 	pub last_login: i32,
+	pub active: bool,
 }

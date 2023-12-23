@@ -7,5 +7,6 @@ use crate::schema::discovery_method;
 pub struct DiscoveryMethod {
 	pub id: Option<i32>,
 	pub name: String,
-	pub description: Option<String>
+	pub description: Option<String>,
+	pub active: bool
 }

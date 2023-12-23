@@ -6,6 +6,7 @@ diesel::table! {
         user_id -> Integer,
         details -> Text,
         timestamp -> Timestamp,
+        active -> Bool,
     }
 }
 
@@ -31,6 +32,7 @@ diesel::table! {
         phone_number -> Text,
         discovery_method_id -> Integer,
         created_at -> Timestamp,
+        active -> Bool,
     }
 }
 
@@ -59,6 +61,7 @@ diesel::table! {
         id -> Nullable<Integer>,
         name -> Text,
         description -> Nullable<Text>,
+        active -> Bool,
     }
 }
 
@@ -89,6 +92,7 @@ diesel::table! {
         description -> Text,
         price -> Float,
         base_time -> Integer,
+        active -> Bool,
     }
 }
 
@@ -115,6 +119,7 @@ diesel::table! {
         salt -> Text,
         created_at -> Integer,
         last_login -> Integer,
+        active -> Bool,
     }
 }
 

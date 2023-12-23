@@ -12,5 +12,6 @@ pub struct Customer {
 	pub email: String,
 	pub phone_number: String,
 	pub discovery_method_id: i32,
-	pub created_at: chrono::NaiveDateTime
+	pub created_at: chrono::NaiveDateTime,
+	pub active: bool
 }
