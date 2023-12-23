@@ -35,6 +35,14 @@ diesel::table! {
 }
 
 diesel::table! {
+    customer_comment (id) {
+        id -> Nullable<Integer>,
+        customer_id -> Integer,
+        comment_id -> Integer,
+    }
+}
+
+diesel::table! {
     discovery_method (id) {
         id -> Nullable<Integer>,
         name -> Text,
@@ -67,7 +75,7 @@ diesel::table! {
         id -> Nullable<Integer>,
         name -> Text,
         description -> Text,
-        price -> Double,
+        price -> Float,
         base_time -> Integer,
     }
 }
@@ -114,15 +122,20 @@ diesel::joinable!(comment -> user (user_id));
 diesel::joinable!(comment_history -> comment (comment_id));
 diesel::joinable!(comment_history -> operation (operation));
 diesel::joinable!(customer -> discovery_method (discovery_method_id));
+diesel::joinable!(customer_comment -> comment (comment_id));
+diesel::joinable!(customer_comment -> customer (customer_id));
+diesel::joinable!(discovery_method_history -> discovery_method (discovery_method_id));
 diesel::joinable!(discovery_method_history -> operation (operation));
 diesel::joinable!(service_history -> operation (operation));
 diesel::joinable!(service_history -> service (service_id));
 diesel::joinable!(user_history -> operation (operation));
+diesel::joinable!(user_history -> user (user_id));
 
 diesel::allow_tables_to_appear_in_same_query!(
     comment,
     comment_history,
     customer,
+    customer_comment,
     discovery_method,
     discovery_method_history,
     operation,

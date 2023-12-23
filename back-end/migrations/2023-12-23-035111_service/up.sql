@@ -3,5 +3,5 @@ CREATE TABLE service (
 	name TEXT NOT NULL,
 	description TEXT NOT NULL,
 	price REAL NOT NULL,
-	base_time INTEGER NOT NULL,
+	base_time INTEGER NOT NULL
 );
