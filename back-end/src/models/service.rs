@@ -1,4 +1,4 @@
-use diesel::{prelude::*, sql_types::Numeric};
+use diesel::prelude::*;
 use crate::schema::service;
 
 #[derive(Queryable, Selectable)]
@@ -8,5 +8,5 @@ pub struct Service {
 	pub id: Option<i32>,
 	pub name: String,
 	pub description: String,
-	pub price: Numeric
+	pub price: f64
 }

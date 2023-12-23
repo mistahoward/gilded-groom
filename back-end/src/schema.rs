@@ -34,8 +34,20 @@ diesel::table! {
         id -> Nullable<Integer>,
         name -> Text,
         description -> Text,
-        price -> Integer,
+        price -> Double,
         base_time -> Integer,
+    }
+}
+
+diesel::table! {
+    service_history (id) {
+        id -> Nullable<Integer>,
+        service_id -> Integer,
+        field_name -> Text,
+        old_value -> Nullable<Text>,
+        new_value -> Nullable<Text>,
+        operation -> Nullable<Integer>,
+        timestamp -> Timestamp,
     }
 }
 
@@ -68,6 +80,8 @@ diesel::table! {
 diesel::joinable!(comment -> user (user_id));
 diesel::joinable!(comment_history -> comment (comment_id));
 diesel::joinable!(comment_history -> operation (operation));
+diesel::joinable!(service_history -> operation (operation));
+diesel::joinable!(service_history -> service (service_id));
 diesel::joinable!(user_history -> operation (operation));
 
 diesel::allow_tables_to_appear_in_same_query!(
@@ -75,6 +89,7 @@ diesel::allow_tables_to_appear_in_same_query!(
     comment_history,
     operation,
     service,
+    service_history,
     user,
     user_history,
 );
