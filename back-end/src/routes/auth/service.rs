@@ -17,7 +17,7 @@ pub async fn request_token(auth_code: String) -> Result<TokenResponse, reqwest::
 		"grant_type": "authorization_code"
 	});
 
-	let response = reqwest::Client::new()
+	let response: serde_json::Value = reqwest::Client::new()
 		.post(TOKEN_URL)
 		.json(&request_body)
 		.send()
@@ -25,6 +25,8 @@ pub async fn request_token(auth_code: String) -> Result<TokenResponse, reqwest::
 		.json()
 		.await?;
 
+	println!("{:?}", response);
+	
 	let token_response: TokenResponse = serde_json::from_value(response).unwrap();
 
 	Ok(token_response)
