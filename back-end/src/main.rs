@@ -1,3 +1,5 @@
+use dotenvy::dotenv;
+
 pub mod schema;
 pub mod models;
 pub mod structs;
@@ -12,6 +14,8 @@ fn index() -> &'static str {
 
 #[launch]
 fn rocket() -> _ {
+	dotenv().expect(".env file not found");
+
 	rocket::build().mount("/", routes![index])
-	.mount("/auth", routes![routes::auth::token_test])
+		.mount("/auth", routes::auth::get_routes())
 }

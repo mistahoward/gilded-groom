@@ -5,6 +5,8 @@
 	"rust-analyzer.showUnlinkedFileNotification": false,
 	"cSpell.words": [
 		"byteorder",
-		"chrono"
+		"chrono",
+		"dotenvy",
+		"reqwest"
 	]
 }
